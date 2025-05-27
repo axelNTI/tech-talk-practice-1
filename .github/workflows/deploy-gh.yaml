@@ -10,8 +10,53 @@ permissions:
   pages: write
 
 jobs:
+  format:
+    name: Check Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/actions-setup@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Check Formatting
+        run: pnpm format
+
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/actions-setup@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Run Tests
+        run: pnpm test
+
   deploy:
     name: Deploy to GitHub Pages
+    needs: [format, tests]
     runs-on: ubuntu-latest
 
     steps:
