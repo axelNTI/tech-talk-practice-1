@@ -7,7 +7,7 @@
 		"start": "vite",
 		"test": "playwright test",
 		"format": "biome ci",
-		"postinstall": "pnpm exec"
+		"postinstall": "pnpm exec playwright install --with-deps"
 	},
 	"keywords": [],
 	"author": "",
