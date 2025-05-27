@@ -1,0 +1,22 @@
+{
+	"name": "tech-talk-practice-1",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "vite",
+		"test": "playwright test",
+		"format": "biome ci",
+		"postinstall": "pnpm exec"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.11.0",
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@playwright/test": "^1.52.0",
+		"@types/node": "^22.15.21",
+		"vite": "^6.3.5"
+	}
+}
